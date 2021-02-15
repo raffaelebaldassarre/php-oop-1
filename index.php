@@ -155,24 +155,58 @@ $Films = [$Arancia_Meccanica, $Kill_Bill, $Indiana_Jones];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container{
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        padding: 30px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45%;
+        border: 2px solid black;
+        border-radius: 20px;
+    }
+
+    .card:hover{
+        background-color: aqua;
+        cursor: pointer;
+    }
+
+
+    </style>
 </head>
 <body>
 
 <main>   
         <div class="container">
-        <?php
+            <?php
 
-            $Kill_Bill->setTitle("Kill Bill: Volume 1");
+                $Kill_Bill->setTitle("Kill Bill: Volume 1");
 
-            foreach ($Films as $value) { ?>
-                    <h2> <?php echo $value -> getTitle() ?></h2>
-                    <p> <?php echo $value -> getGenere() ?></p>
-                    <h3> <?php echo $value -> getRegista() ?></h3>
-                    <p> <?php echo $value -> getDistribuzione() ?></p>
-                <?php } ?>
+                foreach ($Films as $value) { ?>
+                    <div class="card">
+                        <h2> <?php echo $value -> getTitle() ?></h2>
+                        <p> Genere: <?php echo $value -> getGenere() ?></p>
+                        <h3> <?php echo $value -> getRegista() ?></h3>
+                        <p> <?php echo $value -> getDistribuzione() ?></p>
+                    </div>
+            <?php } ?>
         </div>
     </main>
-
 
 </body>
 </html>
