@@ -115,7 +115,13 @@ class Film{
 
     }
 
-    public function getTitolo(){
+    public function setTitle(string $title){
+
+    $this->title = $title;
+
+    }
+
+    public function getTitle(){
         return $this->title;
     }
 
@@ -134,7 +140,7 @@ class Film{
 }
 
 $Arancia_Meccanica = new Film ('Arancia Meccanica', 'grottesco, drammatico, thriller, fantascienza' ,'Stanley Kubrick', 'Warner Bros.');
-$Kill_Bill = new Film('Kill Bill: Volume 1','azione, thriller, grottesco','Quentin Tarantino','Miramax Films');
+$Kill_Bill = new Film('Kill Bill','azione, thriller, grottesco','Quentin Tarantino','Miramax Films');
 $Indiana_Jones = new Film("Indiana Jones e l'ultima crociata",'avventura, azione, commedia, fantastico','Steven Spielberg','Paramount');
 
 $Films = [$Arancia_Meccanica, $Kill_Bill, $Indiana_Jones];
@@ -155,8 +161,11 @@ $Films = [$Arancia_Meccanica, $Kill_Bill, $Indiana_Jones];
 <main>   
         <div class="container">
         <?php
+
+            $Kill_Bill->setTitle("Kill Bill: Volume 1");
+
             foreach ($Films as $value) { ?>
-                    <h2> <?php echo $value -> getTitolo() ?></h2>
+                    <h2> <?php echo $value -> getTitle() ?></h2>
                     <p> <?php echo $value -> getGenere() ?></p>
                     <h3> <?php echo $value -> getRegista() ?></h3>
                     <p> <?php echo $value -> getDistribuzione() ?></p>
